@@ -4,8 +4,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SOFIYAN | Creative Video Editor</title>
-<meta name="description" content="Sofiyan - Professional Video Editor, Visual Artist and Creative Designer.">
+<meta name="theme-color" content="#08090b">
+<meta name="description" content="Sofiyan | Creative Video Editor and Visual Artist">
+<title>SOFIYAN — Creative Video Editor</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
@@ -13,21 +16,27 @@
   --bg:#08090b;
   --card:#111318;
   --text:#f4f4f5;
-  --muted:#858993;
+  --muted:#9297a1;
   --accent:#c6ff73;
   --border:rgba(255,255,255,.10);
 }
 
-* {margin:0;padding:0;box-sizing:border-box}
+* {
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
 html {scroll-behavior:smooth}
+
 body {
   background:var(--bg);
   color:var(--text);
   font-family:'Manrope',sans-serif;
   overflow-x:hidden;
 }
+
 a {color:inherit;text-decoration:none}
-button {font:inherit}
 
 .container {
   width:88%;
@@ -35,18 +44,18 @@ button {font:inherit}
   margin:auto;
 }
 
-/* NAVIGATION */
+/* NAVBAR */
 
 nav {
   position:fixed;
-  width:100%;
   top:0;
+  width:100%;
   z-index:100;
-  padding:22px 6%;
+  padding:20px 6%;
   display:flex;
   justify-content:space-between;
   align-items:center;
-  background:rgba(8,9,11,.75);
+  background:rgba(8,9,11,.78);
   backdrop-filter:blur(18px);
   border-bottom:1px solid rgba(255,255,255,.05);
 }
@@ -62,7 +71,7 @@ nav {
 
 .nav-links {
   display:flex;
-  gap:32px;
+  gap:30px;
 }
 
 .nav-links a {
@@ -78,8 +87,9 @@ nav {
   display:none;
   color:white;
   background:none;
-  border:0;
+  border:none;
   font-size:25px;
+  cursor:pointer;
 }
 
 /* HERO */
@@ -98,7 +108,7 @@ nav {
 .hero-content {
   position:relative;
   z-index:3;
-  padding-top:80px;
+  padding-top:90px;
 }
 
 .tag {
@@ -136,6 +146,7 @@ nav {
 }
 
 .btn {
+  display:inline-block;
   padding:16px 24px;
   background:var(--accent);
   color:#10130b;
@@ -158,11 +169,6 @@ nav {
   border-color:#555;
 }
 
-.btn-outline:hover {
-  border-color:var(--accent);
-  color:var(--accent);
-}
-
 .orb {
   position:absolute;
   right:8%;
@@ -170,10 +176,9 @@ nav {
   width:360px;
   height:360px;
   border-radius:50%;
-  background:radial-gradient(circle at 30% 25%,#dfffaf,#a2c66a 15%,#273d25 45%,#10140f 70%);
-  box-shadow:
-    inset -30px -30px 70px #000,
-    0 0 100px rgba(198,255,115,.12);
+  background:radial-gradient(circle at 30% 25%,#e5ffc0,#a2c66a 15%,#273d25 45%,#10140f 70%);
+  box-shadow:inset -30px -30px 70px #000,
+             0 0 100px rgba(198,255,115,.12);
   animation:float 6s ease-in-out infinite;
 }
 
@@ -191,7 +196,7 @@ nav {
   50% {transform:translateY(-25px) rotate(8deg)}
 }
 
-/* GENERAL SECTIONS */
+/* SECTIONS */
 
 section {
   padding:120px 0;
@@ -220,7 +225,7 @@ section {
   margin-top:20px;
 }
 
-/* ABOUT */
+/* ABOUT + PHOTO */
 
 .about-grid {
   display:grid;
@@ -231,30 +236,25 @@ section {
 }
 
 .profile-card {
-  height:430px;
+  height:450px;
   background:linear-gradient(140deg,#20252b,#101216);
   border:1px solid var(--border);
-  display:flex;
-  align-items:center;
-  justify-content:center;
   position:relative;
   overflow:hidden;
   perspective:1000px;
 }
 
-.profile-card img {
+.profile-photo {
   width:100%;
   height:100%;
   object-fit:cover;
+  object-position:center;
+  display:block;
+  transition:transform .6s ease;
 }
 
-.profile-placeholder {
-  font-family:'Space Grotesk';
-  font-size:140px;
-  font-weight:800;
-  color:#ffffff13;
-  text-shadow:0 20px 50px #000;
-  transform:rotateY(-15deg);
+.profile-card:hover .profile-photo {
+  transform:scale(1.04);
 }
 
 .profile-caption {
@@ -263,7 +263,10 @@ section {
   left:20px;
   font-size:10px;
   letter-spacing:3px;
-  color:#aaa;
+  color:white;
+  padding:10px 14px;
+  background:rgba(0,0,0,.55);
+  backdrop-filter:blur(10px);
 }
 
 .about-text h3 {
@@ -308,7 +311,6 @@ section {
   padding:28px 20px;
   border:1px solid var(--border);
   transition:.4s;
-  transform-style:preserve-3d;
 }
 
 .skill:hover {
@@ -333,7 +335,7 @@ section {
   margin-top:8px;
 }
 
-/* PORTFOLIO */
+/* PROJECTS */
 
 .work-grid {
   display:grid;
@@ -358,7 +360,6 @@ section {
   height:280px;
   overflow:hidden;
   background:linear-gradient(135deg,#222a25,#0c0e11);
-  position:relative;
   display:flex;
   align-items:center;
   justify-content:center;
@@ -377,7 +378,6 @@ section {
   font-family:'Space Grotesk';
   font-size:clamp(35px,6vw,65px);
   font-weight:800;
-  text-align:center;
   color:#ffffff25;
 }
 
@@ -389,6 +389,7 @@ section {
 }
 
 .project-info h3 {font-size:15px}
+
 .project-info p {
   color:var(--muted);
   font-size:11px;
@@ -467,7 +468,7 @@ section {
 
 .socials a {
   border:1px solid #444;
-  padding:14px 22px;
+  padding:15px 23px;
   font-size:11px;
   letter-spacing:1px;
   transition:.3s;
@@ -488,7 +489,7 @@ footer {
   letter-spacing:2px;
 }
 
-/* ANIMATION */
+/* REVEAL ANIMATION */
 
 .reveal {
   opacity:0;
@@ -517,7 +518,11 @@ footer {
     letter-spacing:-6px;
   }
 
-  .about-grid {grid-template-columns:1fr;gap:35px}
+  .about-grid {
+    grid-template-columns:1fr;
+    gap:35px;
+  }
+
   .skills-grid {grid-template-columns:1fr 1fr}
   .work-grid {grid-template-columns:1fr}
   .process-grid {grid-template-columns:1fr}
@@ -525,7 +530,9 @@ footer {
 
 @media(max-width:600px) {
   nav {padding:18px 6%}
+
   .menu {display:block}
+
   .nav-links {
     display:none;
     position:absolute;
@@ -537,9 +544,11 @@ footer {
     flex-direction:column;
     border:1px solid var(--border);
   }
+
   .nav-links.open {display:flex}
+
   section {padding:85px 0}
-  .profile-card {height:320px}
+  .profile-card {height:350px}
   .skills-grid {gap:9px}
   .skill {padding:20px 14px}
   .project-image {height:220px}
@@ -551,10 +560,12 @@ footer {
 
 <body>
 
+<!-- NAVIGATION -->
+
 <nav>
   <a href="#home" class="logo">SOFIYAN<span>.</span></a>
 
-  <button class="menu" id="menuBtn" aria-label="Toggle menu">☰</button>
+  <button class="menu" id="menuBtn" aria-label="Toggle navigation">☰</button>
 
   <div class="nav-links" id="navLinks">
     <a href="#home">Home</a>
@@ -568,9 +579,11 @@ footer {
 <!-- HERO -->
 
 <header class="hero" id="home">
+
   <div class="orb"></div>
 
   <div class="container hero-content">
+
     <div class="tag">Creative Video Editor / Visual Artist</div>
 
     <h1>SOFIYAN<br><span>CREATES.</span></h1>
@@ -584,58 +597,80 @@ footer {
       <a href="#work" class="btn">EXPLORE MY WORK ↗</a>
       <a href="#contact" class="btn btn-outline">CONTACT ME</a>
     </div>
+
   </div>
 </header>
 
 <!-- ABOUT -->
 
 <section id="about">
+
   <div class="container">
+
     <div class="section-label reveal">01 / ABOUT ME</div>
-    <h2 class="section-title reveal">THE PERSON<br>BEHIND THE EDITS.</h2>
+
+    <h2 class="section-title reveal">
+      THE PERSON<br>BEHIND THE EDITS.
+    </h2>
 
     <div class="about-grid">
-      <div class="profile-card reveal">
-        <!-- ADD YOUR PHOTO HERE -->
-        <!-- Example: <img src="profile.jpg" alt="Sofiyan"> -->
 
-        <div class="profile-placeholder">S.</div>
+      <div class="profile-card reveal">
+
+        <!-- UPLOAD profile.jpg TO YOUR GITHUB REPOSITORY ROOT -->
+
+        <img
+          src="profile.jpg"
+          alt="Sofiyan - Creative Video Editor"
+          class="profile-photo"
+        >
+
         <div class="profile-caption">SOFIYAN / CREATIVE</div>
+
       </div>
 
       <div class="about-text reveal">
+
         <h3>Hello, I'm Sofiyan.</h3>
 
         <p>
-          I'm a creative video editor passionate about visual storytelling,
-          cinematic editing and creating content that captures attention.
+          I'm a creative video editor passionate about visual
+          storytelling, cinematic editing and creating content
+          that captures attention.
         </p>
 
         <p>
           My focus is on combining creativity, smooth transitions,
-          sound design and professional visuals to make every video
-          feel unique.
+          sound design and professional visuals to make every
+          video feel unique.
         </p>
 
         <div class="stats">
+
           <div class="stat">
             <h4>Creative</h4>
             <p>Mindset & ideas</p>
           </div>
+
           <div class="stat">
             <h4>Visuals</h4>
             <p>Editing & storytelling</p>
           </div>
+
           <div class="stat">
             <h4>Reels</h4>
             <p>Short-form content</p>
           </div>
+
           <div class="stat">
             <h4>Hyderabad</h4>
             <p>India</p>
           </div>
+
         </div>
+
       </div>
+
     </div>
   </div>
 </section>
@@ -643,15 +678,20 @@ footer {
 <!-- SKILLS -->
 
 <section id="skills">
+
   <div class="container">
+
     <div class="section-label reveal">02 / EXPERTISE</div>
+
     <h2 class="section-title reveal">WHAT I DO.</h2>
+
     <p class="section-desc reveal">
-      Creativity meets precision. These are the skills
-      I use to transform raw footage into engaging content.
+      Creativity meets precision. These are the skills I use
+      to transform raw footage into engaging content.
     </p>
 
     <div class="skills-grid">
+
       <div class="skill reveal">
         <span class="skill-number">01</span>
         <h3>VIDEO EDITING</h3>
@@ -675,16 +715,22 @@ footer {
         <h3>MOTION DESIGN</h3>
         <p>Transitions, effects and typography.</p>
       </div>
+
     </div>
   </div>
 </section>
 
-<!-- PROJECTS -->
+<!-- PORTFOLIO -->
 
 <section id="work">
+
   <div class="container">
+
     <div class="section-label reveal">03 / SELECTED WORK</div>
-    <h2 class="section-title reveal">MY CREATIVE<br>SHOWCASE.</h2>
+
+    <h2 class="section-title reveal">
+      MY CREATIVE<br>SHOWCASE.
+    </h2>
 
     <p class="section-desc reveal">
       A collection of my creative work.
@@ -752,11 +798,15 @@ footer {
 <!-- PROCESS -->
 
 <section>
+
   <div class="container">
+
     <div class="section-label reveal">04 / MY PROCESS</div>
+
     <h2 class="section-title reveal">HOW I CREATE.</h2>
 
     <div class="process-grid">
+
       <div class="process reveal">
         <span>STEP 01</span>
         <h3>THE VISION</h3>
@@ -774,6 +824,7 @@ footer {
         <h3>THE FINAL CUT</h3>
         <p>Polishing every frame and delivering the final project.</p>
       </div>
+
     </div>
   </div>
 </section>
@@ -781,8 +832,11 @@ footer {
 <!-- CONTACT -->
 
 <section id="contact">
+
   <div class="container">
+
     <div class="contact-box reveal">
+
       <div class="section-label">05 / LET'S CONNECT</div>
 
       <h2>LET'S CREATE<br>SOMETHING<br>GREAT.</h2>
@@ -794,28 +848,42 @@ footer {
 
       <div class="socials">
 
-        <!-- REPLACE THESE LINKS WITH YOUR REAL IDS -->
+        <a
+          href="https://www.instagram.com/sufyv.erse/"
+          target="_blank"
+          rel="noopener noreferrer">
+          INSTAGRAM ↗
+        </a>
 
-        <a href="https://instagram.com/YOUR_INSTAGRAM_ID"
-           target="_blank" rel="noopener">INSTAGRAM ↗</a>
+        <a
+          href="https://www.youtube.com/@SUFYVERSE"
+          target="_blank"
+          rel="noopener noreferrer">
+          YOUTUBE ↗
+        </a>
 
-        <a href="https://youtube.com/@YOUR_YOUTUBE_ID"
-           target="_blank" rel="noopener">YOUTUBE ↗</a>
-
-        <a href="mailto:YOUR_EMAIL@gmail.com">EMAIL ↗</a>
+        <a href="mailto:sofiyansk54@gmail.com">
+          EMAIL ↗
+        </a>
 
       </div>
+
     </div>
   </div>
 </section>
 
 <footer>
+
   <span>© 2026 SOFIYAN. ALL RIGHTS RESERVED.</span>
+
   <span>DESIGNED WITH CREATIVITY.</span>
+
 </footer>
 
 <script>
+
 // MOBILE MENU
+
 const menuBtn = document.getElementById('menuBtn');
 const navLinks = document.getElementById('navLinks');
 
@@ -830,18 +898,27 @@ document.querySelectorAll('.nav-links a').forEach(link => {
 });
 
 // SCROLL ANIMATIONS
+
 const observer = new IntersectionObserver(entries => {
+
   entries.forEach(entry => {
+
     if (entry.isIntersecting) {
+
       entry.target.classList.add('visible');
+
       observer.unobserve(entry.target);
+
     }
+
   });
+
 }, {threshold:0.12});
 
 document.querySelectorAll('.reveal').forEach(element => {
   observer.observe(element);
 });
+
 </script>
 
 </body>
